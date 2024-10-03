@@ -9,7 +9,7 @@ def get_ip_lookup_url(ip_address: str) -> str:
     return f'http://ip-api.com/json/{ip_address}'
 
 def fetch_ip_info(ip_address: str, info=[]) -> dict | None:
-    """Fetch IP information using requests and BeautifulSoup"""
+    """Fetch IP information using requests"""
     response = requests.get(url=get_ip_lookup_url(ip_address))
     if response.status_code == 200 and response.json()['status'] == 'success':
         print_results(response.json())
